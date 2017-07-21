@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 import java.util.Properties;
 import org.apache.commons.io.IOUtils;
@@ -161,11 +162,11 @@ public class PropertiesUtil extends ObjectSwitchHelper {
 		return false;
 	}
 
-	public static void main(String[] args) {
-		String properiesName = "generation/generation_config.properties";
+	public static void main(String[] args) throws Exception {
+		String properiesName = "email.properties";
 		PropertiesUtil propertiesUtil = new PropertiesUtil(properiesName);
-		String sdfsdf = propertiesUtil.getString("project_path");
-		System.out.println(sdfsdf);
+		String sdfsdf = propertiesUtil.getString("mail.sender.alias");
+		System.out.println(new String(sdfsdf.getBytes("gbk"),"utf-8"));
 		// 指定更新与删除时指定文件名称
 		// propertiesUtil.setOptProperiesName("generation/generation_config.properties");
 		// propertiesUtil.set("project_path", "sdfsdfsd");
