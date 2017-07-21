@@ -2,6 +2,8 @@ package cn.jeeweb.core.security.shiro.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.subject.Subject;
@@ -19,10 +21,14 @@ import cn.jeeweb.core.utils.StringUtils;
  *
  */
 public class PermissionInterceptorAdapter extends HandlerInterceptorAdapter {
+	
+	private final static Logger logger = Logger.getLogger(PermissionInterceptorAdapter.class);
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		String addrUrl = request.getServletPath();
+		logger.info("访问地址："  + addrUrl);
 		if (handler instanceof HandlerMethod) {
 			HandlerMethod handlerMethod = (HandlerMethod) handler;
 			RequiresMethodPermissions requiresMethodPermissions = handlerMethod
