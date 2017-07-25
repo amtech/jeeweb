@@ -62,6 +62,16 @@ public abstract class BaseCRUDController<Entity extends AbstractEntity<ID>, ID e
 	public void preList(Model model, HttpServletRequest request, HttpServletResponse response) {
 	}
 
+	/**
+	 * @Title: list
+	 * @Description: TODO   直接访问controller  进入的页面
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @return String
+	 * @author wmm
+	 * @date 2017年7月24日下午4:11:01
+	 */
 	@RequiresMethodPermissions("list")
 	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model model, HttpServletRequest request, HttpServletResponse response) {

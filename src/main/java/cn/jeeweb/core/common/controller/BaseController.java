@@ -101,6 +101,7 @@ public class BaseController {
 		if (!suffixName.startsWith("/")) {
 			suffixName = "/" + suffixName;
 		}
+		logger.info("视图名称：----------------"+getViewPrefix().toLowerCase()+"-------------"+suffixName+" -----------");
 		return getViewPrefix().toLowerCase() + suffixName;
 	}
 

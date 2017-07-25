@@ -25,6 +25,16 @@ public class IndexController {
 	@Autowired
 	private IOaNotificationService oaNotificationService;
 
+	/**
+	 * @Title: index
+	 * @Description: TODO  登录执行的初始方法
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @return String
+	 * @author wmm
+	 * @date 2017年7月24日下午4:12:23
+	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(Model model, HttpServletRequest request, HttpServletResponse response) {
 		// 加载菜单
@@ -53,7 +63,7 @@ public class IndexController {
 		// 默认风格
 		String theme = JeewebPropertiesUtil.getConfig("admin.default.theme");
 		if (StringUtils.isEmpty(theme)) {
-			theme = "uadmin";
+			theme = "inspinia";
 		}
 		// cookies配置中的模版
 		Cookie[] cookies = request.getCookies();
